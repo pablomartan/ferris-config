@@ -23,21 +23,21 @@ enum tap_dance_codes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
-      //-------------------------------------------------------------------     -----------------------------------------------------------------------
-      ES_Q, ES_W, ES_F              , ES_P                 , ES_B         ,     ES_J, ES_L    , ES_U              , ES_Y           , KC_BSPC          ,
-      //-------------------------------------------------------------------     -----------------------------------------------------------------------
-      ES_A, KC_R, MT(MOD_LALT, KC_S), MT(MOD_LGUI, KC_T)   , KC_G         ,     KC_M, TD(NTIL), MT(MOD_RALT, KC_E), KC_I           , KC_O             ,
-      //-------------------------------------------------------------------     -----------------------------------------------------------------------
-      KC_Z, KC_X, KC_C              , KC_D                 , KC_V         ,     KC_K, KC_H    , TD(COMMA_DANCE)   , TD(DOT_DANCE)     , TD(ACCENTS_DANCE),
-      //-------------------------------------------------------------------     -----------------------------------------------------------------------
-                                      MT(MOD_MEH, KC_SPACE), OSM(MOD_LSFT),     OSM(MOD_RCTL), TO(1)
+      //---------------------------------------------------------------------     ---------------------------------------------------------------------------
+      ES_Q, ES_W              , ES_F              , ES_P              , ES_B,     ES_J, ES_L             , ES_U           , ES_Y         , KC_BSPC          ,
+      //---------------------------------------------------------------------     ---------------------------------------------------------------------------
+      ES_A, KC_R              , KC_S              , KC_T              , KC_G,     KC_M, TD(NTIL)         , KC_E           , KC_I         , KC_O             ,
+      //---------------------------------------------------------------------     ---------------------------------------------------------------------------
+      ES_Z, MT(MOD_RCTL, ES_X), MT(MOD_LALT, ES_C), MT(MOD_LGUI, ES_D), ES_V,     ES_K, MT(MOD_LGUI,ES_H), TD(COMMA_DANCE), TD(DOT_DANCE), TD(ACCENTS_DANCE),
+      //---------------------------------------------------------------------     ---------------------------------------------------------------------------
+                                        MT(MOD_MEH, KC_SPACE), OSM(MOD_LSFT),     OSM(MOD_RCTL), TO(1)
   ),
 
   [1] = LAYOUT(
       //-----------------------------------------------------------------------       --------------------------------------------------------------------------
       KC_ESCAPE      , ES_AT       , ES_HASH      , ES_DLR        , ES_PERC   ,       ES_AMPR     , ES_LPRN      , ES_RPRN      , ES_SLSH      , KC_TRANSPARENT,
       //-----------------------------------------------------------------------       --------------------------------------------------------------------------
-      KC_TAB         , ES_MINS     ,  TD(QUESTION), TD(EXCLAMATION), TD(QUOTES),       TD(PLUS_HME), ES_LBRC      , ES_RBRC      , TD(BKSL_END) , KC_ENTER      ,
+      KC_TAB         , ES_MINS     ,  TD(QUESTION), TD(EXCLAMATION), TD(QUOTES),      TD(PLUS_HME), ES_LBRC      , ES_RBRC      , TD(BKSL_END) , KC_ENTER      ,
       //-----------------------------------------------------------------------       --------------------------------------------------------------------------
       OSM(MOD_LSFT)  , ES_CIRC     , ES_LABK      ,  ES_RABK      , ES_TILD   ,       ES_EQL      , ES_LCBR      , ES_RCBR      , OSM(MOD_RCTL), TO(3)         ,
       //-----------------------------------------------------------------------       --------------------------------------------------------------------------
@@ -117,6 +117,9 @@ void comma_dance_finished(tap_dance_state_t *state, void *user_data) {
         case SINGLE_TAP:
             register_code16(ES_COMM);
             break;
+        case SINGLE_HOLD:
+            register_code16(KC_LALT);
+            break;
         case DOUBLE_TAP:
             register_code16(ES_MINS);
             break;
@@ -128,6 +131,9 @@ void comma_dance_reset(tap_dance_state_t *state, void *user_data) {
     switch (dance_state.step) {
         case SINGLE_TAP:
             unregister_code16(ES_COMM);
+            break;
+        case SINGLE_HOLD:
+            unregister_code16(KC_LALT);
             break;
         case DOUBLE_TAP:
             unregister_code16(ES_MINS);
@@ -241,7 +247,7 @@ void dot_dance_finished(tap_dance_state_t *state, void *user_data) {
             register_code16(KC_DOT);
             break;
         case SINGLE_HOLD:
-            register_code16(KC_EXLM);
+            register_code16(KC_RCTL);
             break;
         case DOUBLE_TAP:
             register_code16(KC_DOT);
@@ -260,7 +266,7 @@ void dot_dance_reset(tap_dance_state_t *state, void *user_data) {
             unregister_code16(KC_DOT);
             break;
         case SINGLE_HOLD:
-            unregister_code16(KC_EXLM);
+            register_code16(KC_RCTL);
             break;
         case DOUBLE_TAP:
             unregister_code16(KC_DOT);
