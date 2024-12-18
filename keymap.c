@@ -45,14 +45,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [2] = LAYOUT(
-      //--------------------------------------------------------------------------------------       ------------------------------------
-      KC_ESCAPE, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_PREV_TRACK, KC_MEDIA_NEXT_TRACK, LSFT(KC_MINS),       KC_MINS, KC_7, KC_8, KC_9, KC_BSPC ,
-      //--------------------------------------------------------------------------------------       ------------------------------------
-      KC_TAB   , KC_PSCR            , KC_AUDIO_VOL_DOWN  , KC_AUDIO_VOL_UP    , LSFT(KC_EQL) ,       KC_EQL , KC_4, KC_5, KC_6, KC_ENTER,
-      //--------------------------------------------------------------------------------------       ------------------------------------
-      QK_BOOT  , KC_KP_ASTERISK     , KC_BRIGHTNESS_DOWN , KC_BRIGHTNESS_UP   , KC_KP_DOT    ,       KC_0   , KC_1, KC_2, KC_3, KC_NO   ,
-      //--------------------------------------------------------------------------------------       ------------------------------------
-                                                           KC_NO              , KC_LGUI      ,       KC_RALT, KC_ENTER
+      //--------------------------------------------------------------------------------       ------------------------------------
+      KC_ESCAPE, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_PREV_TRACK, KC_MEDIA_NEXT_TRACK, ES_ASTR,       ES_PLUS, KC_7, KC_8, KC_9, KC_BSPC ,
+      //--------------------------------------------------------------------------------       ------------------------------------
+      KC_TAB   , KC_PSCR            , KC_AUDIO_VOL_DOWN  , KC_AUDIO_VOL_UP    , ES_SLSH,       ES_MINS , KC_4, KC_5, KC_6, KC_ENTER,
+      //--------------------------------------------------------------------------------       ------------------------------------
+      QK_BOOT  , KC_KB_MUTE         , KC_BRIGHTNESS_DOWN , KC_BRIGHTNESS_UP   , KC_PDOT,       KC_0   , KC_1, KC_2, KC_3, ES_EQL   ,
+      //--------------------------------------------------------------------------------       ------------------------------------
+                                                           KC_NO              , KC_LGUI,       KC_RALT, KC_ENTER
   ),
 
   [3] = LAYOUT(
