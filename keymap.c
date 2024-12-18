@@ -37,11 +37,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       //-----------------------------------------------------------------------       --------------------------------------------------------------------------
       KC_ESCAPE      , ES_AT       , ES_HASH      , ES_DLR        , ES_PERC   ,       ES_AMPR     , ES_LPRN      , ES_RPRN      , ES_SLSH      , KC_BSPC       ,
       //-----------------------------------------------------------------------       --------------------------------------------------------------------------
-      KC_TAB         , ES_MINS     ,  TD(QUESTION), TD(EXCLAMATION), TD(QUOTES),      TD(PLUS_HME), ES_LBRC      , ES_RBRC      , TD(BKSL_END) , KC_ENTER      ,
+      KC_TAB         , ES_MINS     , TD(QUESTION), TD(EXCLAMATION), TD(QUOTES),       TD(PLUS_HME), ES_LBRC      , ES_RBRC      , TD(BKSL_END) , KC_ENTER      ,
       //-----------------------------------------------------------------------       --------------------------------------------------------------------------
-      OSM(MOD_LSFT)  , ES_CIRC     , ES_LABK      ,  ES_RABK      , ES_TILD   ,       ES_EQL      , ES_LCBR      , ES_RCBR      , OSM(MOD_RCTL), KC_NO         ,
+      OSM(MOD_LSFT)  , RALT(ES_E)  , ES_LABK      ,  ES_RABK      , ES_TILD   ,       ES_EQL      , ES_LCBR      , ES_RCBR      , ES_PIPE      , ES_FORD       ,
       //-----------------------------------------------------------------------       --------------------------------------------------------------------------
-                                                     KC_SPACE     , KC_LGUI   ,       KC_RALT    , KC_NO
+                                                     KC_SPACE     , KC_LGUI   ,       KC_NO       , KC_NO
   ),
 
   [2] = LAYOUT(
